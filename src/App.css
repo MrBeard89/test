@@ -96,6 +96,7 @@
 .App .container-border-white .wrapper .container-actual .container-title .title {
   font-size: 30px;
   text-transform: uppercase;
+  text-shadow: 2px 3px #181818;
   width: 455px;
 }
 .App .container-border-white .wrapper .container-actual .container-date {
@@ -125,6 +126,7 @@
   font-size: 30px;
   height: 123px;
   width: 266.6px;
+  text-shadow: 2px 3px #181818;
 }
 .App .container-border-white button {
   z-index: 3;
