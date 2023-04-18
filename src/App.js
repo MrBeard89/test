@@ -5,7 +5,9 @@ import Data from './utils/data.json'
 import { useState } from 'react'
 
 function App() {
-  const [indexes, setIndexes] = useState(0)
+  //Randomize selection
+  const [indexes, setIndexes] = useState(Math.floor(Math.random() * 3))
+  // console.log(Math.floor(Math.random() * 3))
 
   //Toggle Class function
   const toggleClass = () => {
@@ -36,8 +38,6 @@ function App() {
     indexes === 2
       ? wrapper.childNodes[indexes].classList.add('show')
       : wrapper.childNodes[2].classList.remove('show')
-
-    console.log(indexes)
   }
 
   return (
