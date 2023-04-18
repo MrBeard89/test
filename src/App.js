@@ -56,7 +56,8 @@ function App() {
 
                 <div className='container-date'>
                   <p className='date'>
-                    {actualData.from} - {actualData.to}
+                    {new Date(actualData.from).toDateString().slice(3, 10)}-{' '}
+                    {new Date(actualData.to).toDateString().slice(3, 10)}
                   </p>
                 </div>
                 {/* backgroundColor from the json file */}
