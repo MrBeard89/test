@@ -7,27 +7,31 @@ import { useState } from 'react'
 function App() {
   const [indexes, setIndexes] = useState(0)
 
+  //Toggle Class function
   const toggleClass = () => {
     let wrapper = document.querySelector('.wrapper')
 
-    const removePrevClass = () => {
+    //Remove prev div class + add class to actual div
+    const removePrev = () => {
       wrapper.childNodes[indexes - 1].classList.remove('show')
       wrapper.childNodes[indexes].classList.add('show')
     }
 
-    const removeLastClass = () => {
+    //Remove last div class + set index to 0
+    const removeLast = () => {
       wrapper.childNodes[indexes].classList.remove('show')
       setIndexes(0)
     }
 
-    const addClass = () => {
+    //Add class to actual div + set index +1
+    const add = () => {
       wrapper.childNodes[indexes].classList.add('show')
       setIndexes(indexes + 1)
     }
 
-    indexes >= 1 ? removePrevClass() : addClass()
+    indexes >= 1 ? removePrev() : add()
 
-    indexes < 2 ? addClass() : removeLastClass()
+    indexes < 2 ? add() : removeLast()
 
     indexes === 2
       ? wrapper.childNodes[indexes].classList.add('show')
@@ -40,9 +44,12 @@ function App() {
     <div className='App'>
       <div className='container-border-white'>
         <div className='wrapper'>
+          {/* Mapping throw data.json and creating 3 containers.The divs are top of each other 
+              , and only visible , when clicking the onClick event , and adding the 'show' class to them. */}
           {Data.map((actualData, index) => {
             return (
               <div className='container-actual' key={index}>
+                {/* backgroundColor from the json file */}
                 <div className='container-title' style={{ backgroundColor: actualData.color }}>
                   <h1 className='title'>{actualData.name}</h1>
                 </div>
@@ -52,7 +59,7 @@ function App() {
                     {actualData.from} - {actualData.to}
                   </p>
                 </div>
-
+                {/* backgroundColor from the json file */}
                 <div className='container-members' style={{ backgroundColor: actualData.color }}>
                   <h2 className='members'>{actualData.talent[0]}</h2>
                   <h2 className='members'>{actualData.talent[1]}</h2>
