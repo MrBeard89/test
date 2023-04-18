@@ -1,0 +1,59 @@
+@use '../src/variables' as v;
+
+%main-app-properties {
+  height: 950px;
+  width: 1920px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+//Container -border-white
+%container-border-properties {
+  position: relative;
+  border: 4px solid v.$main-border-color;
+  border-radius: 1rem;
+  width: 800px;
+  height: 300px;
+}
+
+//By default display none to actual containers
+%display-none-containers {
+  &:nth-child(1) {
+    display: none;
+    flex-direction: column;
+  }
+  &:nth-child(2) {
+    display: none;
+    flex-direction: column;
+  }
+  &:nth-child(3) {
+    display: none;
+    flex-direction: column;
+  }
+}
+
+//Toogle button style
+%btn-styling {
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: v.$text-color;
+  background-color: v.$background-color-btn;
+  border-bottom-left-radius: v.$border-radius;
+  border-top-right-radius: 0.5rem;
+  border: none;
+  padding-left: 5px;
+  padding-bottom: 5px;
+  font-size: 25px;
+
+  //Hover effect
+  &:is(:hover, :active) {
+    cursor: pointer;
+    color: v.$main-text-color;
+    background-color: v.$background-color-btn-hover;
+    border-top-right-radius: v.$border-radius;
+  }
+}
